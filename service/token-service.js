@@ -5,8 +5,8 @@ require('dotenv').config()
 
 class TokenService {
     generateTokens(payload) {
-        const accessToken = jwt.sign(payload, process.env.SECRET, { expiresIn: '1min' })
-        const refreshToken = jwt.sign(payload, process.env.SECRET, { expiresIn: '30d' })
+        const accessToken = jwt.sign(payload, 'process.env.SECRET', { expiresIn: '1min' })
+        const refreshToken = jwt.sign(payload, 'process.env.SECRET', { expiresIn: '30d' })
         return {
             accessToken,
             refreshToken
@@ -19,7 +19,7 @@ class TokenService {
             if (!accessToken) {
                 return next(ApiError.UnauthorizedError());
             }
-            const userData = jwt.verify(accessToken, process.env.SECRET);
+            const userData = jwt.verify(accessToken, 'process.env.SECRET');
 
             return userData;
         } catch (e) {
@@ -29,7 +29,7 @@ class TokenService {
 
     validateRefreshToken(token) {
         try {
-            const userData = jwt.verify(token, process.env.SECRET);
+            const userData = jwt.verify(token, 'process.env.SECRET');
             return userData;
         } catch (e) {
             return null;

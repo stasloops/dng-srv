@@ -1,5 +1,6 @@
 const Router = require('express').Router
 const router = new Router()
+const chatController = require('../controllers/chat-controller.js');
 const coinController = require('../controllers/coin-controller.js');
 const diceController = require('../controllers/dice-controller.js');
 const gameController = require('../controllers/game-controller.js');
@@ -27,6 +28,10 @@ router.post('/dice/create', diceController.createGame)
 
 router.post('/transfer/add', transferController.addBalance)
 router.post('/transfer/remove', transferController.removeBalance)
+
+router.get('/chat', chatController.getMessage)
+router.post('/chat/new', chatController.newMessage)
+
 
 router.get('/game/:category', gameController.getFilterGame)
 
