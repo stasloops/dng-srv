@@ -1,9 +1,11 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const {graphqlHTTP} = require('express-graphql')
 const router = require('./router/index.js');
 const cookieParser = require('cookie-parser');
 const errorMiddleware = require('./middlewares/error-middleware');
+const gameSchema = require('./shema/game.js');
 require('dotenv').config()
 
 const PORT = process.env.PORT || 7777
@@ -22,6 +24,20 @@ app.use(cors((
 
 app.use('/api', router);
 app.use(errorMiddleware)
+
+app.get('/', (req, res) => {
+    res.json('nice dunge1!!')
+})
+
+const root = {
+
+}
+
+app.use('/graphql', graphqlHTTP({
+    graphiql: true,
+    schema: gameSchema,
+    rootValue: root
+}))
 
 const start = async () => {
     try {

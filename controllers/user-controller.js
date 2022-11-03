@@ -13,7 +13,7 @@ class UserController {
                     message: 'Нельзя использовать этот e-mail'
                 })
             }
-
+            
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
                 console.log(errors.array())
