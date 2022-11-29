@@ -28,6 +28,7 @@ router.post('/dice/create', diceController.createGame)
 
 router.post('/transfer/add', transferController.addBalance)
 router.post('/transfer/remove', transferController.removeBalance)
+router.post('/transfer/check', transferController.checkPayStatus)
 
 router.get('/chat', chatController.getMessage)
 router.post('/chat/new', chatController.newMessage)

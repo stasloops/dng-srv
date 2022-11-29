@@ -53,7 +53,7 @@ class UserController {
             if (!errors.isEmpty()) {
                 console.log(errors.array())
                 return res.status(400).json({
-                    message: 'Не верно указан e-mail или пароль'
+                    message: 'Не верно указан e-mail'
                 })
             }
 
