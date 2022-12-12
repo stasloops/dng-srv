@@ -14,7 +14,7 @@ app.use(cookieParser())
 app.use(express.json());
 app.use(cors((
     {
-        origin: ['https://dunge.space'],
+        origin: ['https://dunge.space', 'http://localhost:3002'],
         methods: ['GET', 'POST'],
         credentials: true
     }

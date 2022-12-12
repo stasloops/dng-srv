@@ -2,7 +2,7 @@ const tokenService = require('../service/token-service');
 const transferModel = require("../models/transfer-model.js");
 const userModel = require("../models/user-model.js");
 const QiwiBillPaymentsAPI = require('@qiwi/bill-payments-node-js-sdk');
-const SECRET_KEY = process.env.SECRET_KEY
+const SECRET_KEY = process.env.SECRET_KEY 
 const qiwiApi = new QiwiBillPaymentsAPI(SECRET_KEY);
 
 
